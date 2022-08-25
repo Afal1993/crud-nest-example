@@ -1,37 +1,26 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('locale')
-export class Locale {
+@Entity('users')
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({name: 'full_name'})
+  fullName: string;
+  
   @Column({nullable:true})
-  description: string;
+  cpf: string;
+  
+  @Column({nullable:true})
+  birthday: Date;
   
   @Column()
-  street: string;
-  
-  @Column()
-  number: number;
-  
-  @Column()
-  city: string;
+  email: string;
 
   @Column()
-  state: string;
+  password: string;
   
   @Column({nullable:true})
-  neighborhood: string;
-  
-  @Column({nullable:true})
-  complement: string;
+  phone: number;
 
-  @Column({nullable:true})
-  lat: string;
-
-  @Column({nullable:true})
-  long: string;
-
-  @Column({nullable:true})
-  country: string;
 }

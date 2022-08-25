@@ -1,12 +1,12 @@
 import { Controller, Get, Post, Param, Body, HttpStatus, Put, Delete, UseInterceptors } from '@nestjs/common';
-import { LocaleService } from '../services/locale.service';
-import { Locale } from '../entities/locale.entity';
-import { LocaleContract } from "../contracts/locale.contract";
-import { ValidatorInterceptor } from "../interceptors/validate.interceptor"
+import { UserService } from '../services/user.service';
+import { User } from '../entities/user.entity';
+import { UserContract } from '../contracts/user.contract';
+import { ValidatorInterceptor } from '../interceptors/validate.interceptor';
 
-@Controller('v1/locales')
-export class LocaleController {
-  constructor(private readonly service: LocaleService) {}
+@Controller('v1/users')
+export class UserController {
+  constructor(private readonly service: UserService) {}
 
   @Get(':id')
   async findById(@Param('id') id) {
@@ -27,13 +27,13 @@ export class LocaleController {
   }
 
   @Post('')
-  @UseInterceptors(new ValidatorInterceptor(new LocaleContract))
-  async create(@Body() body: Locale) {
+  @UseInterceptors(new ValidatorInterceptor(new UserContract))
+  async create(@Body() body: User) {
     return await this.service.create(body);
   }
 
   @Put(':id')
-  async update(@Param('id') id, @Body() body: Locale) {
+  async update(@Param('id') id, @Body() body: User) {
     return await this.service.update(id, body);
   }
 
