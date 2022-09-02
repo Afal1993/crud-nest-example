@@ -19,7 +19,8 @@ export class LocaleService {
   }
 
   async create(locale: Locale) {
-    return await this.repository.save(locale)
+    const data = { ...locale, deliveryDate: new Date()}
+    return await this.repository.save(data)
   }
 
   async update(id: number, locale: Locale) {

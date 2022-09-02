@@ -11,10 +11,10 @@ export class LocaleContract implements Contract {
   validate(model: Locale): boolean {
     const jarvis = new Jarvis()
 
-    jarvis.isRequired(model.street, 'A nome da rua é obrigatório.')
-    jarvis.isRequired(model.number, 'O número do estabelecimento é obrigatório.')
-    jarvis.isRequired(model.city, 'O nome da cidade é obrigatório.')
-    jarvis.isRequired(model.state, 'O nome do estado é obrigatório.')
+    jarvis.isRequired(model.name, 'A nome do cliente é obrigatório.')
+    jarvis.isRequired(model.deliveryDate, 'A data de entrega é obrigatória.')
+    jarvis.isRequired(model.startPoint, 'O ponto de partida é obrigatório.')
+    jarvis.isRequired(model.destinationPoint, 'O ponto de destino é obrigatório.')
     this.errors = jarvis.errors
 
     return jarvis.isValid()

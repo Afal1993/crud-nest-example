@@ -5,19 +5,19 @@ export class Locale {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({nullable:true})
-  description: string;
+  @Column()
+  name: string;
   
   @Column()
-  street: string;
+  deliveryDate: Date;
   
   @Column()
-  number: number;
+  startPoint: string;
   
   @Column()
-  city: string;
+  destinationPoint: string;
 
-  @Column()
+  @Column({nullable:true})
   state: string;
   
   @Column({nullable:true})
