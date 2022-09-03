@@ -17,6 +17,12 @@ require('dotenv').config()
       database: process.env.DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false
+        }
+      }
     }),
   ],
   controllers: [AppController],
