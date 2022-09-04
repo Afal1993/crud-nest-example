@@ -11,7 +11,7 @@ export class LocaleService {
   ) {}
 
   async findOne(id:number) {
-    return await this.repository.findBy({id});
+    return await this.repository.findOneBy({id});
   }
 
   async findAll() {
